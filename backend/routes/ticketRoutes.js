@@ -7,8 +7,12 @@ const {
   updateTicket,
   deleteTicket,
 } = require('../controllers/ticketController')
+const noteRouter = require('./noteRoutes')
 
 const router = express.Router()
+
+//re-route into note router
+router.use('/:ticketId/notes', noteRouter)
 
 router.route('/').get(protect, getTickets).post(protect, createTicket)
 
