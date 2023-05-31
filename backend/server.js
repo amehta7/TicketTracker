@@ -2,6 +2,7 @@ const express = require('express')
 const colors = require('colors')
 const dotenv = require('dotenv')
 const userRouter = require('./routes/userRoutes')
+const ticketRouter = require('./routes/ticketRoutes')
 const { errorHandler } = require('./middleware/errorMiddleware')
 const connectDB = require('./config/db')
 
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 
 //routes
 app.use('/api/users', userRouter)
+app.use('/api/tickets', ticketRouter)
 
 //middleware
 app.use(errorHandler)
